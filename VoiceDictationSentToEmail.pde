@@ -68,7 +68,7 @@ void draw()
 
 void keyReleased()
 {
-  if ( key == 'r' ) 
+  if ( key == ' ' ) 
   {
     // to indicate that you want to start or stop capturing audio data, you must call
     // beginRecord() and endRecord() on the AudioRecorder object. You can start and stop
@@ -83,7 +83,7 @@ void keyReleased()
       recorder.beginRecord();
     }
   }
-  if ( key == 's' )
+  if (key == CODED &&  keyCode == ALT )
   {
     // we've filled the file out buffer, 
     // now write it to the file we specified in createRecorder
