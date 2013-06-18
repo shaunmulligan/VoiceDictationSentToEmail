@@ -48,6 +48,7 @@ void draw()
 {
   background(40, 40, 40); 
   stroke(255);
+  text("Confirm email with Enter!", 220, 25);
   // draw the waveforms
   // the values returned by left.get() and right.get() will be between -1 and 1,
   // so we need to scale them up to see the waveform

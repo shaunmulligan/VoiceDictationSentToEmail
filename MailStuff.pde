@@ -64,7 +64,7 @@ void sendMail(String email)
       message.setSentDate(new Date());
       
       Transport.send(message);
-
+      System.out.println("email sent to"+email);
       System.out.println("Done");
     } 
 
