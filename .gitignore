@@ -1,5 +1,6 @@
 *.wav
 *.java
 *.jar
-
+*.DS_Store
+*.png
 data/myrecording.wav
