@@ -1,24 +1,29 @@
+//GUI include
 import g4p_controls.*;
-
+//emailer include
 import javax.mail.*;
 import javax.mail.internet.*;
-
+//audio control include
 import ddf.minim.*;                //import minim to handle sound recordings
+
 Minim minim;                       //create minim object
 AudioInput in;                     //create line in object to connect to mic
 AudioRecorder recorder;            //create record object to record input stream
 
-GTextField txf1;
-GTabManager tt;
-GImageButton btnMic, btnEmail;
+GTextField txf1;                   //create text field1
+GTabManager tt;                    //create tab manager.
+GImageButton btnMic, btnEmail;     //create 2 buttons
 
 //Global variables
 String email = "shaun.robert.mulligan@gmail.com";      //default receipent email address
+float sampleRate = 32000;
+
 void setup() {
   size(512,200,P2D);
   cursor(CROSS);
   String[] files;
 
+  //define GUI components
   files = new String[] { 
     "mic_w_128.png", "mic_w_128.png", "mic_b_128.png"
   };
@@ -38,10 +43,11 @@ void setup() {
   
   minim = new Minim(this);         //construct new minim instance
   
-  in = minim.getLineIn(Minim.STEREO, 512,16000);      //connect audioInput object to lineIn object stream
+  in = minim.getLineIn(Minim.MONO, 512,sampleRate);      //connect audioInput object to lineIn object stream
   //need to change foward slash to backslash for
   recorder = minim.createRecorder(in,dataPath("myrecording.wav"),true);  //point recorder at file to save to.
   textFont(createFont("SanSerif",14));            //set up font style in window.
+  
 }
 
 void draw()
